@@ -2,16 +2,15 @@
 
 class games:
     def __init__(self):
-        self.rep = print(input("Start the game (y/n):"))
+        self.rep = input("Start the game (y/n):")
         self.guess = 6
         self.word = "animal"
         self.finalWord = ""
 
-        self.startGame()
-        # if self.rep == "y":
-        #     self.startGame()
-        # else:
-        #     print("ok bye")
+        if self.rep == "y":
+            self.startGame()
+        else:
+            print("ok bye")
 
 
 #fucntion to play the game
@@ -30,16 +29,23 @@ class games:
             if lettre in self.word:
                 print("val")
                 self.finalWord += lettre
-                print(self.finalWord)
                 self.drawGraph()
             elif lettre != self.word:
                 self.guess -= 1
                 self.drawGraph()
                 print("ressayer")
 
+            # print(self.sortResult(self.finalWord))
 
 
 
+    def sortResult(self, wordBs, wordFn):
+        # for i in wordBs:
+        #     print(i)
+        #     for j in wordFn:
+        #         if
+
+        return ''.join(sorted(wordFn))
 
 
 
@@ -127,6 +133,18 @@ class games:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    game = games()
-    print(game.__init__())
+    # game = games()
+    # print(game.__init__())
+
+    wo = "animal"
+    wa = "malina"
+    var = ""
+    for i in enumerate(wo):
+        # print(i)
+
+        for j in enumerate(wa):
+            # print(j)
+            if i == j:
+                var += j
+        print(var)
 
