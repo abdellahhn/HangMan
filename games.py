@@ -3,43 +3,51 @@
 class games:
     def __init__(self):
         self.rep = input("Start the game (y/n):")
-        self.guess = 6
-        self.word = "animal"
-        self.finalWord = ""
+        self.word = "pizza"
+        self.finalWord = ["", "", "", "", "", ""]
+        self.utilL = ""
+        self.guess = len(self.word)
+
+
 
         if self.rep == "y":
             self.startGame()
         else:
             print("ok bye")
 
+    def spaceFW(self, fnWord):
+        return None
 
-#fucntion to play the game
+    #fucntion to play the game
     def startGame(self):
         self.drawGraph()
-        for i in range(len(self.word)):
-            print("_", end=" ")
+        print(self.finalWord)
 
 
         word = "animal"
         gues = len(word)
-        print(word, gues)
-        for i in range(len(self.word)):
+        lol = range(len(word))
+        print(lol, word, gues)
+
+        while self.guess > 0:
             lettre = str(input("Entrez une lettre:"))
 
-            if lettre in self.word:
+            if lettre in self.word and not lettre in self.utilL:
                 print("val")
                 self.finalWord += lettre
+                self.utilL += lettre
                 self.drawGraph()
-            elif lettre != self.word:
+                print(self.finalWord)
+            elif lettre not in self.word and not lettre in self.utilL:
                 self.guess -= 1
                 self.drawGraph()
                 print("ressayer")
 
-            # print(self.sortResult(self.finalWord))
+            print(self.sortResult(self.finalWord))
 
 
 
-    def sortResult(self, wordBs, wordFn):
+    def sortResult(self, wordFn):
         # for i in wordBs:
         #     print(i)
         #     for j in wordFn:
@@ -49,7 +57,7 @@ class games:
 
 
 
-#fucntion to draw the graph
+    #fucntion to draw the graph
     def drawGraph(self):
 
         if self.guess == 6:
@@ -133,18 +141,18 @@ class games:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # game = games()
-    # print(game.__init__())
+    game = games()
+    print(game.__init__())
 
-    wo = "animal"
-    wa = "malina"
-    var = ""
-    for i in enumerate(wo):
-        # print(i)
-
-        for j in enumerate(wa):
-            # print(j)
-            if i == j:
-                var += j
-        print(var)
+    # wo = "animal"
+    # wa = "malina"
+    # var = ""
+    # for i in enumerate(wo):
+    #     # print(i)
+    #
+    #     for j in enumerate(wa):
+    #         # print(j)
+    #         if i == j:
+    #             var += j
+    #     print(var)
 
